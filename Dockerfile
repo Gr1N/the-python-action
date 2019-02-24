@@ -9,7 +9,11 @@ LABEL "com.github.actions.color"="yellow"
 LABEL "repository"="https://github.com/Gr1N/the-python-action"
 LABEL "maintainer"="Nikita Grishko <gr1n@protonmail.com>"
 
-RUN pip install -U setuptools wheel tox
+RUN pip install -U \
+    setuptools \
+    wheel \
+    tox \
+    poetry
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
