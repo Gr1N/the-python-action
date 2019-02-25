@@ -1,0 +1,10 @@
+#!/bin/sh
+# script/test: Runs linters and tests
+
+# Exit if any subcommand fails
+set -e
+
+# Ensure we're always running from the project root
+cd "$(dirname "$0")/.."
+
+shellcheck *.sh
