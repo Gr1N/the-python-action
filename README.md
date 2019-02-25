@@ -13,7 +13,9 @@ Not exactly what you're looking for? Feel free to fork and send me a pull reques
 
 ## Use
 
-Doesn't take any arguments.
+### Arguments
+
+Using arguments you can specify any command to execute you want. Look at an example below to know how to do it.
 
 ### Environment Variables
 
@@ -21,15 +23,15 @@ Doesn't take any arguments.
 
 ### Example workflow
 
-    workflow "Run linters and tests" {
+    workflow "lint && test" {
       on = "push"
       resolves = [
-        "py3.7> linting> black",
-        "py3.7> testing",
+        "py3.7 linting black",
+        "py3.7 testing",
       ]
     }
 
-    action "py3.7> linting> black" {
+    action "py3.7 linting black" {
       uses = "Gr1N/the-python-action@master"
       args = "tox -e py37-black"
       env = {
@@ -37,7 +39,7 @@ Doesn't take any arguments.
       }
     }
 
-    action "py3.7> testing" {
+    action "py3.7 testing" {
       uses = "Gr1N/the-python-action@master"
       args = "poetry install && poetry run pytest"
       env = {

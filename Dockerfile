@@ -2,7 +2,7 @@ ARG PYTHON_VERSION=latest
 FROM python:${PYTHON_VERSION}
 
 LABEL "com.github.actions.name"="The Python Action"
-LABEL "com.github.actions.description"="List and test your Python project"
+LABEL "com.github.actions.description"="A GitHub action for Python projects to run linters and tests"
 LABEL "com.github.actions.icon"="check-square"
 LABEL "com.github.actions.color"="blue"
 
