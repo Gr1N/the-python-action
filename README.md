@@ -32,7 +32,7 @@ Using arguments you can specify any command to execute you want. Look at an exam
     }
 
     action "py3.7 linting black" {
-      uses = "Gr1N/the-python-action@master"
+      uses = "docker://gr1n/the-python-action:master"
       args = "tox -e py37-black"
       env = {
         PYTHON_VERSION = "3.7.2"
@@ -40,7 +40,7 @@ Using arguments you can specify any command to execute you want. Look at an exam
     }
 
     action "py3.7 testing" {
-      uses = "Gr1N/the-python-action@master"
+      uses = "docker://gr1n/the-python-action:master"
       args = "poetry install && poetry run pytest"
       env = {
         PYTHON_VERSION = "3.7.2"
