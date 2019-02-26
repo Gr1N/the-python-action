@@ -1,6 +1,6 @@
 workflow "Build and Publish" {
   on = "push"
-  resolves = "Docker Publish"
+  resolves = "Notify"
 }
 
 action "Shell Lint" {
@@ -41,4 +41,16 @@ action "Docker Publish" {
   needs = ["Docker Tag", "Docker Login"]
   uses = "actions/docker/cli@master"
   args = "push gr1n/the-python-action"
+}
+
+action "Notify" {
+  needs = "Docker Publish"
+  uses = "docker://gr1n/the-telegram-action:master"
+  env = {
+    TELEGRAM_MESSAGE = "`the-python-action` build succeeded"
+  }
+  secrets = [
+    "TELEGRAM_BOT_TOKEN",
+    "TELEGRAM_CHAT_ID"
+  ]
 }
