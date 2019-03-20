@@ -1,5 +1,7 @@
 # the-python-action
 
+> Project archived, please use official [Python images](https://hub.docker.com/_/python/).
+
 A GitHub action for Python projects to run linters and tests.
 
 Supports any Python version you'll give it, just find a valid tag on [Docker Hub](https://hub.docker.com/_/python).
